@@ -1,0 +1,15 @@
+#!/bin/bash
+
+export LD_LIBRARY_PATH=
+
+export BUILD_TOPDIR=$PWD
+echo BUILD_TOPDIR = $BUILD_TOPDIR
+export STAGING_DIR=$BUILD_TOPDIR/tmp
+
+# **Replace the following line with your real path**
+export TOOLPATH=`echo -n $BUILD_TOPDIR/../openwrt/staging_dir/toolchain-mips_34kc_gcc-*-linaro_uClibc-*`
+
+export PATH=${TOOLPATH}/bin:${PATH}
+
+cd u-boot-domino-2015
+$MAKECMD
